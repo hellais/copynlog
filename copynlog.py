@@ -18,10 +18,11 @@ from os.path import basename
 import shutil
 
 class Disker(object):
-    def __init__(self, srcs, dst):
+    def __init__(self, srcs, dst, log_file_dir="~/Music/"):
         self.srcs = srcs
         self.dst = dst
-        self.log_file = basename(dst) + '.md'
+        log_file = pj(os.path.expanduser(log_file_dir), basename(dst) + '.md')
+        self.log_file = log_file
 
     def set_target_drive(self):
         """
